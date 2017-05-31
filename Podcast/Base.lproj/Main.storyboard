@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2dY-gg-Y8B">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="Im4-5O-wMj">
+            <objects>
+                <tableViewController id="A2V-bH-jPe" customClass="TableViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iqs-xa-nj0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="A2V-bH-jPe" id="zPU-66-IQb"/>
+                            <outlet property="delegate" destination="A2V-bH-jPe" id="SmG-OK-vxd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="72q-fK-wna"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H1R-Ru-nGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="-398"/>
+        </scene>
+        <!--Search View-->
+        <scene sceneID="QfS-tc-SmM">
+            <objects>
+                <viewController id="z6h-5V-f93" customClass="SearchView" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fpG-sc-0iW"/>
+                        <viewControllerLayoutGuide type="bottom" id="SPd-Ue-KGb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ea5-Ki-tPz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ipm-ZS-Mpq">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="z6h-5V-f93" id="whp-Fg-ww5"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZi-s9-7wW">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="z6h-5V-f93" id="OOM-VD-xKj"/>
+                                    <outlet property="delegate" destination="z6h-5V-f93" id="YkD-EN-IOQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ipm-ZS-Mpq" firstAttribute="top" secondItem="fpG-sc-0iW" secondAttribute="bottom" id="OPB-eB-jhH"/>
+                            <constraint firstAttribute="trailing" secondItem="Ipm-ZS-Mpq" secondAttribute="trailing" id="TiP-pE-mHq"/>
+                            <constraint firstItem="Ipm-ZS-Mpq" firstAttribute="trailing" secondItem="MZi-s9-7wW" secondAttribute="trailing" id="X67-Lj-2Kg"/>
+                            <constraint firstItem="Ipm-ZS-Mpq" firstAttribute="leading" secondItem="MZi-s9-7wW" secondAttribute="leading" id="bSe-g5-yzB"/>
+                            <constraint firstItem="MZi-s9-7wW" firstAttribute="bottom" secondItem="SPd-Ue-KGb" secondAttribute="top" id="idB-yh-Vik"/>
+                            <constraint firstItem="Ipm-ZS-Mpq" firstAttribute="leading" secondItem="Ea5-Ki-tPz" secondAttribute="leading" id="tyb-Bu-a05"/>
+                            <constraint firstItem="MZi-s9-7wW" firstAttribute="top" secondItem="Ipm-ZS-Mpq" secondAttribute="bottom" id="ucB-Ih-QZS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DCc-0A-cRy"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Ipm-ZS-Mpq" id="f3y-yf-GIu"/>
+                        <outlet property="tableView" destination="MZi-s9-7wW" id="inJ-Iu-aEn"/>
+                        <segue destination="Mr6-v8-7M2" kind="show" identifier="epseg" id="xwz-r0-eHR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYD-kz-CuH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="297"/>
+        </scene>
+        <!--Episode List-->
+        <scene sceneID="O70-9T-SvD">
+            <objects>
+                <tableViewController id="Mr6-v8-7M2" customClass="EpisodeList" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yvq-e7-BeM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Mr6-v8-7M2" id="8Y5-PL-iHL"/>
+                            <outlet property="delegate" destination="Mr6-v8-7M2" id="E33-kC-pFE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MMp-FQ-XaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2424" y="297"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GiR-Jh-X0Q">
+            <objects>
+                <tabBarController id="2dY-gg-Y8B" customClass="TabBarController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fTh-Fb-5dR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uco-Aj-0c8" kind="relationship" relationship="viewControllers" id="zqK-38-zFy"/>
+                        <segue destination="4Bq-qY-Wka" kind="relationship" relationship="viewControllers" id="50N-f3-zEV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hsu-bC-cYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112" y="-33"/>
+        </scene>
+        <!--Podcasts-->
+        <scene sceneID="vbD-pV-qel">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uco-Aj-0c8" customClass="NavigationController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Podcasts" id="kfO-xB-z61"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yoM-58-jci">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A2V-bH-jPe" kind="relationship" relationship="rootViewController" id="0yd-qA-kRw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ah1-MQ-AYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="934" y="-398"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="vZ1-QB-wCe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Bq-qY-Wka" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" id="MvQ-xl-B2t"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IJ1-g4-qiL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z6h-5V-f93" kind="relationship" relationship="rootViewController" id="iZI-Pj-1cj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S8i-x7-bzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932" y="297"/>
+        </scene>
+    </scenes>
+</document>
